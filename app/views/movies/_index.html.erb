@@ -1,0 +1,59 @@
+<div class="row">
+    <% @movies.each do |movie| %>
+        <div class="col-sm-6 col-md-3">                    
+            <div class="thumbnail">
+                <% if user_signed_in? %>
+                    <div class="js-rating" movie_id="<%= movie.id %>" data-rate-value=6></div>
+                <% end %>
+                <br>
+                <%= link_to (image_tag movie.image.url(:medium), class: 'image'), user_movie_path(movie.user, movie) %>
+                <% if movie.user == current_user %>
+                    <br>
+                    <%= link_to 'Edit', edit_user_movie_path(movie.user, movie), class: 'btn btn-primary pull-right' %>
+                    <%= link_to "Remove", user_movie_path(movie.user, movie), method: :delete, data: { confirm: "You Sure?" }, class: 'btn btn-primary pull-right btn-remove-main' %>
+                <% end %>
+            </div>
+         </div>
+    <% end %>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <%= will_paginate @movies %>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){  
+        $.ajax({
+            type: "GET",
+            url: "<%= get_ratings_path %>",
+            dataType : "script"
+        }); 
+
+        $(".js-search-form").keydown(function(e) { 
+            setTimeout(function() {
+                var form = $(".js-search-form");
+                $.ajax({
+                    type: "GET",
+                    url: "<%= movies_path %>",
+                    dataType : "script",
+                    data: form.serialize(),
+                    success: function(data){}
+                }); 
+            }, 10);
+        });
+
+        $(".js-rating").rate();
+
+        $(".js-rating").on("change", function(ev, data){
+            $.ajax({
+                type: "POST",
+                url: "<%= create_rating_path %>",
+                dataType : "script",
+                data: { movie_id: $(this).attr('movie_id'), rating: { score: data['to'] } },
+                success: function(data){}
+            }); 
+         });    
+    });
+</script>

@@ -1,8 +1,10 @@
 class Rating < ApplicationRecord
 	belongs_to :user
-	belongs_to :category
-	has_many   :ratings
+	belongs_to :movie
 
-	valides :title, presence: true 
-    valides :text, presence: true 
+	validates :score, presence: true
+
+	def find_last_rating(user, movie)
+		Rating.where(user: user, movie: movie).last
+	end
 end
