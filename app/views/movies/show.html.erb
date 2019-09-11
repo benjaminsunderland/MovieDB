@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-6 image_tag">
+		<%= image_tag @movie.image.url(:medium) %>
+	</div>
+	<div class="col-md-6 text-left">		
+	    <strong><h3>Title:</h3></strong>
+	    <strong><h5><%= @movie.title %></h5></strong>
+	    <strong><h3>Category:</h3></strong>
+	    <strong><p><%= @movie.category_type %></p></strong>
+	    <strong><h3>Description:</h3></strong>
+	    <strong><p><%= @movie.text %></p></strong>
+	</h1>
+</div>
