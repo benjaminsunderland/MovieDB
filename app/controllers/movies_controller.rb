@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
 	before_action :authenticate_user!, except: %i[index show]
 
 	def index
-		@movies = Movie.all.order('created_at DESC')
+		@movies = Movie.filtered(params).order(created_at: :desc)
 	end
 
 	def new

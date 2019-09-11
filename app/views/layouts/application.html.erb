@@ -1,41 +1,30 @@
 <!DOCTYPE html>
 <html>
-	<head>
-    	<title>MovieReview</title>
-    	<%= csrf_meta_tags %>
+    <head>
+        <title>MovieReview</title>
+        <%= csrf_meta_tags %>
 
-    	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
     <body>
         <%= render 'layouts/header' %>
-                <div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">I'm the Sidebar</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-          </div>
-        </div><!--/.sidebar-offcanvas-->
-      </div><!--/row-->
+
         <div class="container-fluid">
             <%= render 'layouts/messages' %>
             <%= yield %>
         </div>
+
         <div id="footer">
             <div class="container">
                 <p>&nbsp;</p>
-                <p class="copyright pull-left">Copyright 2019 © MovieDB </a></p>
-                <p class="user-email pull-right"><%= "Logged in as #{current_user.email}" %></a></p>
+                <p class="copyright pull-left">Copyright <%= Time.zone.today.year %> © MovieDB</p>
+                <% if user_signed_in? %>
+                    <p class="user-email pull-right">Logged in as <%= current_user.email %></p>
+                <% end %>
             </div>
-         </div>
+        </div>
     </body>
 </html>
 
