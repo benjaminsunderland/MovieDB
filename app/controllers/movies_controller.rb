@@ -2,9 +2,18 @@ class MoviesController < ApplicationController
 	before_action :find_user, only: %i[new edit create]
 	before_action :find_movie, except: %i[index new create]
 	before_action :authenticate_user!, except: %i[index show]
+	before_action :authorize_user, only: %i[edit update destroy]
 
 	def index
-		@movies = Movie.filtered(params).order(created_at: :desc)
+		if params[:my_movies].present?
+			@movies = current_user.movies.filtered(params)
+								  .paginate(page: params[:page], per_page: 10)
+								  .order(created_at: :desc)
+		else
+			@movies = Movie.filtered(params)
+						   .paginate(page: params[:page], per_page: 10)
+						   .order(created_at: :desc)
+		end
 	end
 
 	def new
@@ -13,10 +22,10 @@ class MoviesController < ApplicationController
 
 	def create
     	@movie = @user.movies.new(movie_params)
-    	if @movie.save!
+    	if @movie.save
     		redirect_to user_movie_path(@user, @movie), notice: "Successfully created movie!"
    		else
-       		render :new
+       		redirect_to new_user_movie_path(@user), alert: @movie.errors.full_messages.to_sentence
     	end
 	end
 
@@ -28,7 +37,7 @@ class MoviesController < ApplicationController
 		if @movie.update(movie_params)
         	redirect_to user_movie_path(@movie), notice: "Updated movie!"
         else
-        	render :edit
+        	render edit_user_movie_path(@user, @movie), alert: @movie.errors.full_messages.to_sentence
         end
 	end
 
@@ -36,11 +45,17 @@ class MoviesController < ApplicationController
 		if @movie.destroy
 			redirect_to user_movies_path, notice: "Destroyed movie!"
 		else
-			redirect_to user_movie_path(@movie), alert: "Something went Wrong"
+			redirect_to user_movie_path(@movie), alert: @movie.errors.full_messages.to_sentence
 		end
 	end
 
 	private
+
+	def authorize_user
+		if @movie.user != current_user
+			return redirect_to movies_path, notice: 'Unauthorized'
+		end
+	end
 
 	def find_user
 		@user = User.find(params[:user_id])

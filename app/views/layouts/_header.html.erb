@@ -15,6 +15,7 @@
         	<ul class="nav navbar-nav">
     	        <% if user_signed_in? %>
     	        	<li><%= link_to "New Movie", new_user_movie_path(current_user), class: "active" %></li>
+                    <li><%= link_to "My Movies", user_movies_path(current_user, my_movies: true), class: "active" %></li>
                     <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "active" %></li>
     	        <% else %>
     	        	<li><%= link_to "Sign Up", new_user_registration_path, class: "active" %></li>
@@ -22,13 +23,13 @@
     	        <% end %>
           	</ul>
             <% if user_signed_in? %>
-                <%= form_tag movies_path, class: 'navbar-form navbar-right', method: :get, remote: true do %>
+                <%= form_tag movies_path, class: 'navbar-form navbar-right', method: :get  do %>
             		<div class="form-group">
-                        <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search movies' %>
+                        <%= text_field_tag :search, params[:search], class: 'js-search-form form-control', placeholder: 'Search Movies...' %>
           	        </div>
-                    <%= submit_tag 'Submit', class: 'btn btn-default' %>
                 <% end %>
             <% end %>
         </div>
     </div>
 </nav>
+

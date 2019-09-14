@@ -1,28 +1,8 @@
 <div class="row">
-    <div class="col-sm-12">
-        <h4>My Movies</h4>
-    </div>
-    <% @movies.where(user: current_user).each do |movie| %>
+    <% @movies.each do |movie| %>
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
-                <%= link_to (image_tag movie.image.url(:medium), class: 'image'), user_movie_path(movie.user, movie) %>
-                <% if movie.user == current_user %>
-                    <hr>
-    	            <%= link_to 'Edit', edit_user_movie_path(movie.user, movie), class: 'btn btn-primary' %>
-    	            <%= link_to "Remove", user_movie_path(movie.user, movie), method: :delete, data: { confirm: "You Sure?" }, class: 'btn btn-primary' %>
-                <% end %>
-            </div>
-         </div>
-    <% end %>
-</div>
-<hr>
-<div class="row">
-    <div class="col-sm-12">
-        <h4>Other people movies</h4>
-    </div>
-    <% @movies.where.not(user: current_user).each do |movie| %>
-        <div class="col-sm-6 col-md-3">
-            <div class="thumbnail">
+                <div class="my-rating"></div>
                 <%= link_to (image_tag movie.image.url(:medium), class: 'image'), user_movie_path(movie.user, movie) %>
                 <% if movie.user == current_user %>
                     <hr>
@@ -34,3 +14,25 @@
     <% end %>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        <%= will_paginate @movies %>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){  
+    $(".js-search-form").keydown(function(e) { 
+        setTimeout(function() {
+            var form = $(".js-search-form");
+            $.ajax({
+                type: "GET",
+                url: "<%= movies_path %>",
+                dataType : "script",
+                data: form.serialize(),
+                success: function(data){}
+            }); 
+        }, 10);
+    });
+});
+</script>
