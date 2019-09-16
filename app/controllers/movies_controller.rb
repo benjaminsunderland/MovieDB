@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-	before_action :find_user, only: %i[new edit create]
+	before_action :find_user, only: %i[new edit create update]
 	before_action :find_movie, except: %i[index new create]
 	before_action :authenticate_user!, except: %i[index show]
 	before_action :authorize_user, only: %i[edit update destroy]
@@ -20,8 +20,8 @@ class MoviesController < ApplicationController
 		@movie = @user.movies.new
 	end
 
-	def create
-    	@movie = @user.movies.new(movie_params)
+	def create		
+    	@movie = @user.movies.new(movie_params)    	
     	if @movie.save
     		redirect_to user_movie_path(@user, @movie), notice: "Successfully created movie!"
    		else
@@ -37,7 +37,7 @@ class MoviesController < ApplicationController
 		if @movie.update(movie_params)
         	redirect_to user_movie_path(@movie), notice: "Updated movie!"
         else
-        	render edit_user_movie_path(@user, @movie), alert: @movie.errors.full_messages.to_sentence
+        	redirect_to edit_user_movie_path(@user, @movie), alert: @movie.errors.full_messages.to_sentence
         end
 	end
 

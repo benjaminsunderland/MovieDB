@@ -5,6 +5,8 @@
         <%= csrf_meta_tags %>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag('jquery.raty.js') %>
+        <%= stylesheet_link_tag('jquery.raty.css') %>
     </head>
 
     <body>
@@ -18,9 +20,8 @@
         <div id="footer">
             <div class="container">
                 <p>&nbsp;</p>
-                <p class="copyright pull-left">Copyright <%= Time.zone.today.year %> © MovieDB</p>
                 <% if user_signed_in? %>
-                    <p class="user-email pull-right">Logged in as <%= current_user.email %></p>
+                    <p class="user-email pull-left">Logged in as <%= current_user.email %></p>
                 <% end %>
             </div>
         </div>

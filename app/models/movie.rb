@@ -10,7 +10,7 @@ class Movie < ApplicationRecord
 	validates :title, presence: true 
     validates :text, presence: true
 
-    enum category_type: %i[action adventure comedy crime drama epics horror musicals sci_fi war westerns]
+    enum category_type: %i[action adventure animation comedy crime drama epics horror musicals sci_fi war westerns]
 
     def self.filtered(params)
     	result = current_scope || self
@@ -30,5 +30,9 @@ class Movie < ApplicationRecord
 
     def self.find_category_amount(type)
         Movie.where(category_type: type).size
+    end
+
+    def find_average_rating
+        (ratings.sum(&:score) / ratings.count) if ratings.exists?
     end
 end

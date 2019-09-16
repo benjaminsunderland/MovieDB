@@ -1,13 +1,16 @@
 <div class="row">
     <% @movies.each do |movie| %>
         <div class="col-sm-6 col-md-3">
+                            <% if user_signed_in? %>
+                    <div class='js-rating' movie_id="<%= movie.id %>"></div>
+                <% end %>
             <div class="thumbnail">
-                <div class="my-rating"></div>
+                <br>
                 <%= link_to (image_tag movie.image.url(:medium), class: 'image'), user_movie_path(movie.user, movie) %>
                 <% if movie.user == current_user %>
-                    <hr>
-                    <%= link_to 'Edit', edit_user_movie_path(movie.user, movie), class: 'btn btn-primary' %>
-                    <%= link_to "Remove", user_movie_path(movie.user, movie), method: :delete, data: { confirm: "You Sure?" }, class: 'btn btn-primary' %>
+                    <br>
+                    <%= link_to 'Edit', edit_user_movie_path(movie.user, movie), class: 'btn btn-primary pull-right' %>
+                    <%= link_to "Remove", user_movie_path(movie.user, movie), method: :delete, data: { confirm: "You Sure?" }, class: 'btn btn-primary pull-right btn-remove-main' %>
                 <% end %>
             </div>
          </div>
@@ -21,18 +24,38 @@
 </div>
 
 <script>
-$(document).ready(function(){  
-    $(".js-search-form").keydown(function(e) { 
-        setTimeout(function() {
-            var form = $(".js-search-form");
+    $(document).ready(function(){  
+        $.ajax({
+            type: "GET",
+            url: "<%= get_ratings_path %>",
+            dataType : "script"
+        }); 
+
+        $(".js-search-form").keydown(function(e) { 
+            setTimeout(function() {
+                var form = $(".js-search-form");
+                $.ajax({
+                    type: "GET",
+                    url: "<%= movies_path %>",
+                    dataType : "script",
+                    data: form.serialize(),
+                    success: function(data){}
+                }); 
+            }, 10);
+        });
+
+        $('.js-rating').raty({
+            path: '/assets/'
+        });
+
+        $(".js-rating").on("click", function(ev, data){
             $.ajax({
-                type: "GET",
-                url: "<%= movies_path %>",
+                type: "POST",
+                url: "<%= create_rating_path %>",
                 dataType : "script",
-                data: form.serialize(),
+                data: { movie_id: $(this).attr('movie_id'), rating: { score: $(this).raty('score') } },
                 success: function(data){}
             }); 
-        }, 10);
+         });    
     });
-});
 </script>

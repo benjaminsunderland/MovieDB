@@ -9,5 +9,22 @@
 	    <strong><p><%= @movie.category_type %></p></strong>
 	    <strong><h3>Description:</h3></strong>
 	    <strong><p><%= @movie.text %></p></strong>
+	    <% if @movie.ratings.exists? %>
+	    	<strong><h3>Average Rating:</h3></strong>
+		    <%= @movie.find_average_rating.times do %>
+		    		 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+		    <% end %>
+		 <% end %>
+	    <br>
+	    <% if user_signed_in? %>
+		    <br>
+			<% User.find_ratings.each do |rating| %>
+				<strong><h3>User:</h3></strong>
+			    <strong><p><%= rating.user.email %></p></strong>
+				<% rating.score.times do %>
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+				<% end %>
+			<% end %>
+		<% end %>
 	</h1>
 </div>

@@ -1,0 +1,3 @@
+<% @ratings.each do |rating| %>
+	$("#rating_movie_#<%= rating.movie.id %>").raty('score', rating.score);  
+<% end %>
