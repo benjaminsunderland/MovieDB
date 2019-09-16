@@ -23,6 +23,17 @@ Install the dependencies by:
 bundle install
 ```
 
+Seed the database:
+
+```sh
+rake db:Seed
+```
+
+```
+Your username: test@example.com
+Your password: password
+```
+
 ## Tests
 
 This application has been written using Test Driven Development.

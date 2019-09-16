@@ -61,4 +61,6 @@ body {
   margin-right: 5px;
 }
 
-
+@media only screen and (max-width : 900px) {
+    .list-group { display: none; }
+}
