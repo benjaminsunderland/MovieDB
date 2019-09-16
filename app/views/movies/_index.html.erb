@@ -1,10 +1,10 @@
 <div class="row">
     <% @movies.each do |movie| %>
-        <div class="col-sm-6 col-md-3">
-                            <% if user_signed_in? %>
-                    <div class='js-rating' movie_id="<%= movie.id %>"></div>
-                <% end %>
+        <div class="col-sm-6 col-md-3">                    
             <div class="thumbnail">
+                <% if user_signed_in? %>
+                    <div class="js-rating" movie_id="<%= movie.id %>" data-rate-value=6></div>
+                <% end %>
                 <br>
                 <%= link_to (image_tag movie.image.url(:medium), class: 'image'), user_movie_path(movie.user, movie) %>
                 <% if movie.user == current_user %>
@@ -44,16 +44,14 @@
             }, 10);
         });
 
-        $('.js-rating').raty({
-            path: '/assets/'
-        });
+        $(".js-rating").rate();
 
-        $(".js-rating").on("click", function(ev, data){
+        $(".js-rating").on("change", function(ev, data){
             $.ajax({
                 type: "POST",
                 url: "<%= create_rating_path %>",
                 dataType : "script",
-                data: { movie_id: $(this).attr('movie_id'), rating: { score: $(this).raty('score') } },
+                data: { movie_id: $(this).attr('movie_id'), rating: { score: data['to'] } },
                 success: function(data){}
             }); 
          });    

@@ -1,24 +1,53 @@
-# README
+# Risk Methods
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Aim:
 
-Things you may want to cover:
+- Write a MovieDB application with specific requirements.
 
-* Ruby version
+## Installation
 
-* System dependencies
+* Make sure you have rails and ruby installed.
+* Clone the repository below to your local computer
 
-* Configuration
+```sh
+git clone https://github.com/benjaminsunderland/MovieDB.git
+```
 
-* Database creation
+Install the dependencies by:
 
-* Database initialization
+```sh
+bundle install
+```
 
-* How to run the test suite
+## Tests
 
-* Services (job queues, cache servers, search engines, etc.)
+This application has been written using Test Driven Development.
 
-* Deployment instructions
+Run the tests by:
 
-* ...
+```sh
+rails test
+```
+
+Run the program by:
+
+```sh
+In the project directory, run:
+
+'rails s'
+```
+
+## Technologies
+
+* Ruby
+* Rails
+* Minitest
+* Capybara
+* JQuery
+* Ajax
+
+##  What did I like / What would I like to include in the future or change
+
+- I really enjoyed making this application because of it gave me a better understanding of how to set dependencies up. Usually by working in a 'production environment', everything has normally been naturally set-up and so this process was new to me.
+- I would of liked more time to implement and learn react as this is a technology I am extremely interested in using. However, I was forced to use JQuery & AJAX due to the time limitation.
+- Switching over to RSpec would of been a better solution as this technology works much better then Minitest. It was quite hard to find the syntax for minitest and there are many webpages and blogs about Rspec/Capybara.
