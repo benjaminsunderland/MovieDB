@@ -1,10 +1,10 @@
 <div class="row">
     <% @movies.each do |movie| %>
-        <div class="col-sm-3 col-md-3">
-            <% if user_signed_in? %>
-                <div class="js-rating" movie_id="<%= movie.id %>" data-rate-value=0></div>
-            <% end %>                
+        <div class="col-sm-6 col-md-3">                    
             <div class="thumbnail">
+                <% if user_signed_in? %>
+                    <div class="js-rating" movie_id="<%= movie.id %>" data-rate-value=6></div>
+                <% end %>
                 <br>
                 <%= link_to (image_tag movie.image.url(:medium), class: 'image'), user_movie_path(movie.user, movie) %>
                 <% if movie.user == current_user %>
@@ -12,8 +12,8 @@
                     <%= link_to 'Edit', edit_user_movie_path(movie.user, movie), class: 'btn btn-primary pull-right' %>
                     <%= link_to "Remove", user_movie_path(movie.user, movie), method: :delete, data: { confirm: "You Sure?" }, class: 'btn btn-primary pull-right btn-remove-main' %>
                 <% end %>
-            </div> 
-         </div>
+            </div>
+        </div>
     <% end %>
 </div>
 

@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
 	before_action :find_movie, only: :create
+
 	def create
    		@rating = @movie.ratings.create(rating_params)
    		@rating.user = @movie.user

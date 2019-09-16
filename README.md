@@ -13,6 +13,7 @@ The Aim:
 git clone https://github.com/benjaminsunderland/MovieDB.git
 ```
 
+<<<<<<< HEAD
 ```sh
 https://infinite-hollows-92795.herokuapp.com
 ```
@@ -40,6 +41,20 @@ This application has been written using Test Driven Development.
 
 Run the tests by:
 
+=======
+Install the dependencies by:
+
+```sh
+bundle install
+```
+
+## Tests
+
+This application has been written using Test Driven Development.
+
+Run the tests by:
+
+>>>>>>> 2c81cdefe27b7ad8c2105b13ea2f08bec856634a
 ```sh
 rails test
 ```
