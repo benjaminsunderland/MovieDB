@@ -9,8 +9,8 @@ class User < ApplicationRecord
   		User.includes(:ratings).all.map { |u| u.ratings.last }.compact 
     end
 
-  	def send_admin_mail
-    	UserMailer.send_new_user_message(self).deliver
+    def send_admin_mail
+        UserMailer.send_user_new_message(self).deliver
   	end
 end
 
