@@ -1,6 +1,6 @@
 <div class="row">
     <% @movies.each do |movie| %>
-        <div class="col-sm-6 col-md-3">                    
+        <div class="col-2 col-sm-4 col-md-3">                    
             <div class="thumbnail">
                 <% if user_signed_in? %>
                     <div class="js-rating" movie_id="<%= movie.id %>" data-rate-value=6></div>
@@ -44,7 +44,9 @@
             }, 10);
         });
 
-        $(".js-rating").rate();
+        $(".js-rating").rate({
+            step_size: 1
+        });
 
         $(".js-rating").on("change", function(ev, data){
             $.ajax({

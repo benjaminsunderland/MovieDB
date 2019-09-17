@@ -61,6 +61,29 @@ body {
   margin-right: 5px;
 }
 
-@media only screen and (max-width : 900px) {
-    .list-group { display: none; }
+.js-rating {
+  color: #DAA520;
 }
+
+@media(max-width:767px){
+}
+
+
+@media(min-width:768px){
+}
+
+@media(max-width:992px){
+  .list-group { display: none; }
+  li.dropdown-main { display: block; }
+} 
+
+
+@media(min-width:992px){
+    li.dropdown-main { display: none; }
+} 
+
+@media(min-width:1200px){.list-group-item-main { display: none; }}
+
+/*@media only screen and (max-width : 900px) {
+    .list-group { display: none; }
+}*/
