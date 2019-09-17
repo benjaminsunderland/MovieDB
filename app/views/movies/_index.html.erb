@@ -1,17 +1,21 @@
 <div class="row">
     <% @movies.each do |movie| %>
-        <div class="col-2 col-sm-4 col-md-3">                    
-            <div class="thumbnail">
-                <% if user_signed_in? %>
-                    <div class="js-rating" movie_id="<%= movie.id %>" data-rate-value=6></div>
-                <% end %>
-                <br>
-                <%= link_to (image_tag movie.image.url(:medium), class: 'image'), user_movie_path(movie.user, movie) %>
-                <% if movie.user == current_user %>
+        <div class="col col-sm-4 col-md-3">
+            <div class="wrapper">                  
+                <div class="thumbnail">
+                    <% if user_signed_in? %>
+                        <div class="js-rating" movie_id="<%= movie.id %>" data-rate-value=6></div>
+                    <% end %>
                     <br>
-                    <%= link_to 'Edit', edit_user_movie_path(movie.user, movie), class: 'btn btn-primary pull-right' %>
-                    <%= link_to "Remove", user_movie_path(movie.user, movie), method: :delete, data: { confirm: "You Sure?" }, class: 'btn btn-primary pull-right btn-remove-main' %>
-                <% end %>
+                    <%= link_to (image_tag movie.image.url(:medium), class: 'image'), user_movie_path(movie.user, movie) %>
+                    <% if movie.user == current_user %>
+                        <br>
+                        <div class="image-buttons">
+                            <%= link_to 'Edit', edit_user_movie_path(movie.user, movie), class: 'btn btn-primary' %>
+                            <%= link_to "Remove", user_movie_path(movie.user, movie), method: :delete, data: { confirm: "You Sure?" }, class: 'btn btn-primary btn-remove-main' %>
+                        </div>
+                    <% end %>
+                </div>
             </div>
         </div>
     <% end %>

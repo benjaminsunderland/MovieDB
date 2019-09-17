@@ -65,11 +65,26 @@ body {
   color: #DAA520;
 }
 
+.wrapper {
+  display: inline-table;
+  margin-top: 1em;
+  width: 100%;
+  text-align: left;
+}
+
+.col {
+  text-align: center;
+}
+
 @media(max-width:767px){
+  image-buttons { margin-right: 100px; }
 }
 
 
-@media(min-width:768px){
+@media(max-width:768px){
+  .wrapper {
+      width: 50%;
+  }
 }
 
 @media(max-width:992px){
