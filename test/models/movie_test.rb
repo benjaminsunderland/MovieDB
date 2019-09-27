@@ -10,6 +10,7 @@ class MovieTest < ActiveSupport::TestCase
 
 	should validate_presence_of :title
 	should validate_presence_of :text
+	should validate_presence_of :category_type
 
 	test 'SEARCH FIELDS' do
 		assert_equal %i[search title category_type], Movie::SEARCH_FIELDS

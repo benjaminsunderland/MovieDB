@@ -1,13 +1,14 @@
 <div class="row">
+    <div clsss="container-success"></div>
     <% @movies.each do |movie| %>
         <div class="col col-sm-4 col-md-3">
             <div class="wrapper">                  
                 <div class="thumbnail">
                     <% if user_signed_in? %>
-                        <div class="js-rating" movie_id="<%= movie.id %>" data-rate-value=6></div>
+                        <div class="js-rating" movie_id="<%= movie.id %>" data-rate-value=0></div>
                     <% end %>
                     <br>
-                    <%= link_to (image_tag movie.image.url(:medium), class: 'image'), user_movie_path(movie.user, movie) %>
+                    <%= link_to (image_tag movie.image.url(:medium), class: 'movie-image'), user_movie_path(movie.user, movie) %>
                     <% if movie.user == current_user %>
                         <br>
                         <div class="image-buttons">
@@ -52,12 +53,12 @@
             step_size: 1
         });
 
-        $(".js-rating").on("change", function(ev, data){
+        $('.js-rating').on('click', function() {
             $.ajax({
                 type: "POST",
                 url: "<%= create_rating_path %>",
                 dataType : "script",
-                data: { movie_id: $(this).attr('movie_id'), rating: { score: data['to'] } },
+                data: { movie_id: $(this).attr('movie_id'), rating: { score: $(this).attr('data-rate-value') } },
                 success: function(data){}
             }); 
          });    

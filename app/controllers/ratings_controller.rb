@@ -1,17 +1,16 @@
 class RatingsController < ApplicationController
 	before_action :find_movie, only: :create
+	respond_to :js
 
 	def create
    		@rating = @movie.ratings.create(rating_params)
    		@rating.user = @movie.user
 
-   		respond_to do |format|
-	    	if @rating.save
-	    		format.js { render :success }
-	   		else
-	       		format.js { render :fail }
-	    	end
-	    end
+    	if @rating.save
+    		format.js { render :success }
+   		else
+       		format.js { render :fail }
+    	end
 	end
 
 	def get_ratings

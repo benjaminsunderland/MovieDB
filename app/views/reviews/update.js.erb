@@ -1,0 +1,3 @@
+$('.review-<%= @review.id %>').html("<%= escape_javascript(render partial: 'reviews/review', locals: { review: @review } ) %>");
+$('.review-form').html("<%= escape_javascript(render partial: 'reviews/form', locals: { review: @review, movie: @review.movie } ) %>")
+$('.simple_form_review').val('')

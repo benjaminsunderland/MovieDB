@@ -1,0 +1,14 @@
+<% unless action_name == 'edit' %>
+	<%= simple_form_for review, url: user_movie_reviews_path(movie.user, movie), method: :post, remote: true do |f| %>
+		<%= f.hidden_field :movie_score, value: movie.user.ratings.where(movie_id: movie.id)&.last&.score %>
+		<%= f.input :title, input_html: { class: 'simple_form_review', required: true  }%>
+		<%= f.input :content, as: :text, input_html: {rows: 3, class: 'simple_form_review', required: true }%>
+			<%= f.button :submit, "Submit Review", class: 'btn btn-primary' %>
+	<% end %>
+<% else %>
+		<%= simple_form_for review, url: user_movie_review_path(movie.user, movie, review), method: :patch, remote: true do |f| %>
+		<%= f.input :title, input_html: { class: 'simple_form_review', required: true  }%>
+		<%= f.input :content, as: :text, input_html: {rows: 3, class: 'simple_form_review', required: true }%>
+			<%= f.button :submit, "Update Review", class: 'btn btn-primary' %>
+	<% end %>
+<% end %>

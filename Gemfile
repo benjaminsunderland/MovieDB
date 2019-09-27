@@ -17,6 +17,7 @@ gem "bootstrap_form", ">= 4.0.0.alpha1"
 gem 'devise-bootstrap-form'
 gem 'will_paginate'
 gem 'ratyrate'
+gem 'premailer-rails'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 

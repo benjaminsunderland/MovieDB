@@ -1,0 +1,6 @@
+review_one:
+  title: some title
+  content: some content
+  movie_score: 3
+  user: benjamin
+  movie: movie_1

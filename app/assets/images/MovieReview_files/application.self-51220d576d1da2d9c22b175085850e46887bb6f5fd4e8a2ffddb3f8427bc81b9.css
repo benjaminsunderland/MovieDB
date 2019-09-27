@@ -1,0 +1,124 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+body {
+   min-height: 400px;
+   margin-bottom: 100px;
+   clear: both;
+}
+
+#footer > .container {
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#footer {
+	background: #f1f1f1;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.thumbnail {
+
+	border: none;
+}
+
+.simple_form {
+
+  margin-top: 100px;
+}
+
+.image_tag { 
+  width: 30%;
+}
+
+.user-email {
+  margin-right: -250px;
+}
+
+.on {
+  background_color: gold;
+}
+
+.btn-remove-main {
+  margin-right: 5px;
+}
+
+.js-rating {
+  color: #DAA520;
+}
+
+.glyphicon-star {
+    color: #DAA520;
+}
+
+.wrapper {
+  display: inline-table;
+  margin-top: 1em;
+  width: 100%;
+  text-align: left;
+}
+
+.col {
+  text-align: center;
+}
+
+@media(max-width:767px){
+  image-buttons { margin-right: 100px; }
+}
+
+
+@media(max-width:768px){
+  .wrapper {
+      width: 50%;
+  }
+}
+
+@media(max-width:992px){
+  .list-group { display: none; }
+  .movie-image-container { text-align: center;  }
+  li.dropdown-main { display: block; }
+} 
+
+
+@media(min-width:992px){
+    li.dropdown-main { display: none; }
+} 
+
+@media(min-width:1200px){.list-group-item-main { display: none; }}
+
+/*@media only screen and (max-width : 900px) {
+    .list-group { display: none; }
+}*/
+
+.main-hero {
+  background-size: cover; 
+  height: 400px;
+  background: url("/assets/images/pandora.jpg");
+}
+
+.movies_text {
+  margin-top: -100px;
+}
+
+.panel > .panel-heading {
+    background-color: #D8FCFC
+}

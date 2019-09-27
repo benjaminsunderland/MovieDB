@@ -5,10 +5,12 @@ class Movie < ApplicationRecord
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
 	belongs_to :user
-	has_many   :ratings, dependent: :destroy
-
+	has_many :ratings, dependent: :destroy
+    has_many :reviews, dependent: :destroy
+    
 	validates :title, presence: true 
     validates :text, presence: true
+    validates :category_type, presence: true 
 
     enum category_type: %i[action adventure animation comedy crime drama epics horror musicals sci_fi war westerns]
 

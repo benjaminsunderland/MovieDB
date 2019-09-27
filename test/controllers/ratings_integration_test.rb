@@ -12,10 +12,4 @@ class RatingsIntegrationTest < ActionDispatch::IntegrationTest
 	before do
 		sign_in @user
 	end
-
-	# test 'create rating' do		
-	# 	assert_difference('Movie.count') do 
-	# 		post create_rating_path, { rating: { score: 5 }, movie_id: @movie.id }, xhr: true
-	# 	end 
-	# end
 end

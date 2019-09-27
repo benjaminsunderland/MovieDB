@@ -1,19 +1,60 @@
-<div class="row">
-    <div class="col-md-5 image_tag">
-		<%= image_tag @movie.image.url(:medium) %>
+<div class="row"> 
+	<div class="movie-image-container">
+	    <div class="col-md-4">
+			<%= image_tag @movie.image.url(:medium), class: 'movie-image-show'%>
+		</div>
 	</div>
-	<div class="col-md-4 col-md-offset-1 text-left">		
-	    <strong><h3>Title:</h3></strong>
-	    <strong><h5><%= @movie.title %></h5></strong>
-	    <strong><h3>Category:</h3></strong>
-	    <strong><p><%= @movie.category_type %></p></strong>
-	    <strong><h3>Description:</h3></strong>
-	    <strong><p><%= @movie.text %></p></strong>
-	    <% if @movie.ratings.exists? %>
-	    	<strong><h3>Average Rating:</h3></strong>
-		    <%= @movie.find_average_rating.times do %>
-		    		 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-		    <% end %>
-		 <% end %>
-	</h1>
+	<br>
+	<div class="col-md-6 col-md-offset-1">
+		<div class="panel panel-default">
+	    	<div class="panel-heading bg-info">Details</div>
+	    		<div class="panel-body">
+			    	<strong><u><h5>Title:</h5></u></strong>
+				    <p><%= @movie.title %></p>
+				    <strong><u><h5>Category:</h5></u></strong>
+				    <p><%= @movie.category_type %></p>
+				    <strong><u><h5>Description:</h5></u></strong>
+				    <p><%= @movie.text %></p>
+
+				    <% if @movie.ratings.exists? %>
+				    	<strong><u><h5>Average Rating:</h5></u></strong>
+					    <%= @movie.find_average_rating.times do %>
+					    		 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					    <% end %>
+					 <% end %>
+  				</div>
+  			</div>
+  			<% if user_signed_in? %>
+	  			<div class="panel panel-default">
+		    		<div class="panel-heading">Write Review</div>
+			  			<div class="panel-body review-form">
+							<%= render 'reviews/form', review: @review, movie: @movie %>
+						</div>
+					</div>	
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>
+<br>
+
+	<div class="row">
+		<div class="container-fluid">
+			<div class="row-fluid"> 
+				<div class="reviews"></div>
+			</div>
+		</div>
+	</div>
+
+
+<script>
+	$(document).ready(function(){ 
+		$.ajax({
+			type: "GET",
+			url: "<%= get_reviews_path %>",
+			dataType : "script",
+			data: { 'movie_id': <%= @movie.id %>}
+		}); 
+	});
+</script>
+    

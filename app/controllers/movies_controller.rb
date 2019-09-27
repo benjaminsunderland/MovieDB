@@ -6,11 +6,11 @@ class MoviesController < ApplicationController
 
 	def index
 		if params[:my_movies].present?
-			@movies = current_user.movies.filtered(params)
+			@movies = Movie.includes(:user, :ratings, :reviews).filtered(params)
 								  .paginate(page: params[:page], per_page: 10)
-								  .order(created_at: :desc)
+								  .order(created_at: :desc).where(user: current_user)
 		else
-			@movies = Movie.filtered(params)
+			@movies = Movie.includes(:user, :ratings, :reviews).filtered(params)
 						   .paginate(page: params[:page], per_page: 10)
 						   .order(created_at: :desc)
 		end
@@ -29,7 +29,9 @@ class MoviesController < ApplicationController
     	end
 	end
 
-	def show; end
+	def show
+		@review = @movie.reviews.new
+	end
 
 	def edit; end
 

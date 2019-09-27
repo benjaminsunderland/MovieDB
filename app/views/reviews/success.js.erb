@@ -1,0 +1,2 @@
+$('.reviews').append("<%= escape_javascript(render partial: 'reviews/review', locals: { review: @review } ) %>");
+$('.simple_form_review').val('')

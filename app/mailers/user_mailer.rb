@@ -1,8 +1,7 @@
 class UserMailer < ApplicationMailer
-	default from: "no-reply@moviedb.com"
-
 	def send_user_new_message(user)
     	@user = user
-    	mail(to: @user.email, subject: 'Welcome to MovieDB!')
+    	attachments.inline["pandora.jpg"] = File.read("#{Rails.root}/app/assets/images/pandora.jpg")
+    	mail(to: 'ben@sunderland.eu.com', subject: 'Welcome to MovieDB!')
     end
 end

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://localhost:3000/users/7/movies/12 -->
+<html class="gr__localhost"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>MovieReview</title>
+        <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="Q9u9WAYOFknJO0M7/xv0LeYEZzA7NaEzz5IUg97K/MlJXNQy4H4cXsTGtNonSAbHP2NYD69BNa0SdYU9pA7zOg==">
+        <link rel="stylesheet" media="all" href="./MovieReview_files/bootstrap.self-603f330c29af013305325569c8c75d03d688963abd8cde4fffec17b5ce417bfb.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="./MovieReview_files/sprites.self-556e1741ff6d22f63fe0be609679c8f06ffc45eabc31836b6b785475bb283b84.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="./MovieReview_files/bootstrap_and_overrides.self-f5a90d20e5090d64763dcfad94d947343b9898d7a030bb466e9247e00ca06c27.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="./MovieReview_files/devise_bootstrap_form.self-aaa9f92d152910e4efa3286a99d71aaed87816d78572d132cd88ad46a2e86f91.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="./MovieReview_files/send_user_new_message.self-84c44c31d898de39dced78fcf90dddeae9621f74511ac500f63715a82bd5cb00.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="./MovieReview_files/application.self-51220d576d1da2d9c22b175085850e46887bb6f5fd4e8a2ffddb3f8427bc81b9.css" data-turbolinks-track="reload">
+        <script src="./MovieReview_files/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/action_cable.self-5454023407ffec0d29137c7110917e1e745525ae9afbc05f52104c4cd6597429.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/rater.min.self-6385054b1422e4fd0535ddff4c4f32081b3452272793f717e9732e9d43dae283.js" data-turbolinks-track="reload"></script>
+<script src="./MovieReview_files/application.self-9b9be17d3c356f1a9a23b03b3b5d01bb4e46845459cc7ac189cd20f571fefb23.js" data-turbolinks-track="reload"></script>
+        <script src="./MovieReview_files/rater.min.self-6385054b1422e4fd0535ddff4c4f32081b3452272793f717e9732e9d43dae283.js"></script>
+    </head>
+
+    <body data-gr-c-s-loaded="true">
+        <nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+    	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        		<span class="sr-only">Toggle navigation</span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://localhost:3000/movies">Movie Reviews</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        	<ul class="nav navbar-nav">
+    	        	<li><a class="active" href="http://localhost:3000/users/18/movies/new">New Movie</a></li>
+                    <li><a class="active" href="http://localhost:3000/users/18/movies?my_movies=true">My Movies</a></li>
+                        <li class="dropdown-main"><a class="dropdown-toggle" data-toggle="dropdown" href="http://localhost:3000/users/7/movies/12#">Categories<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Action</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Adventure</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Animation</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Comedy</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Crime</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Drama</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Epics</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Horror</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Musicals</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Sci fi</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">War</a></li>
+                                    <li class="list-group-item-main"><a href="http://localhost:3000/users/7/movies/12#">Westerns</a></li>
+                            </ul>
+                        </li>
+                    <li><a class="active" rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">Sign Out</a></li>
+          	</ul>
+                <form class="navbar-form navbar-right" action="http://localhost:3000/movies" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+            		<div class="form-group">
+                        <input type="text" name="search" id="search" class="js-search-form form-control" placeholder="Search Movies...">
+          	        </div>
+</form>        </div>
+    </div>
+</nav>
+
+<script>
+    $(document).ready(function(){  
+        $(".list-group-item-main").on('click',function(e) {
+            e.preventDefault(); 
+            $.ajax({
+                type: "GET",
+                data: { category_type: $(this).text().replace(/\d+/g, '').trim() },
+                url: "/movies",
+                dataType : "script",
+            }); 
+        });
+    });
+</script>
+
+        <div class="container-fluid">
+            
+            
+<script>
+    $(document).ready(function(){  
+        $(".list-group-item").on('click',function(e) {
+            e.preventDefault(); 
+            $.ajax({
+                type: "GET",
+                data: { category_type: $(this).text().replace(/\d+/g, '').trim() },
+                url: "/movies",
+                dataType : "script",
+            }); 
+        });
+    });
+</script>
+            <div class="row"> 
+	<div class="movie-image-container">
+	    <div class="col-md-4 col-md-offset-1">
+			<img src="./MovieReview_files/toy_story.jpg" alt="Toy story">
+		</div>
+	</div>
+	<br>
+	<div class="col-md-6"><grammarly-extension class="_1KJtL" style="position: absolute; top: 0px; left: 0px; pointer-events: none;"><div data-grammarly-part="highlights" class="u_fNK" style="position: absolute; top: 0px; left: 0px;"><div style="box-sizing: content-box; top: 496px; left: 32px; width: 613px; height: 112px; position: relative; pointer-events: none; overflow: hidden; border: 0px; border-radius: 0px; padding: 0px; margin: 0px;"><div style="position: absolute; top: 0px; left: 0px;"><div style="height: 989px; width: 1967px;"><div class="_3F-Wk _3mEyK" style="top: 8px; left: 12px; width: 52.6406px; height: 16px;"></div></div><div style="position: absolute; top: 0px; left: 0px; height: 989px; width: 1967px;"></div></div></div></div><div data-grammarly-part="button" class="u_fNK" style="position: absolute; top: 0px; left: 0px;"><div style="box-sizing: content-box; top: 496px; left: 32px; width: 613px; height: 112px; position: relative; pointer-events: none; overflow: hidden; border: 0px; border-radius: 0px; padding: 0px; margin: 0px;"><div style="position: absolute; transform: translate(-100%, -100%); top: 104px; left: 601px; width: auto; height: auto; pointer-events: all;"><div style="display: flex; flex-direction: row;"><div style="position: relative;"></div><div><div class="_5WizN _34Jb6 _37oOc _1QzSN"><div class="_3YmQx"><div title="Found 1 error in text" class="_3QdKe">1</div></div></div></div></div></div></div></div></grammarly-extension>
+		<div class="panel panel-default">
+	    	<div class="panel-heading bg-info">Details</div>
+	    		<div class="panel-body">
+			    	<strong><h5>Title:</h5></strong>
+				    <p>Toy Story</p>
+				    <strong><h5>Category:</h5></strong>
+				    <p>animation</p>
+				    <strong><h5>Description:</h5></strong>
+				    <p>Family Animation Movie</p>
+
+				    	<strong><h5>Average Rating:</h5></strong>
+					    
+					    		 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+
+					    		 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+
+					    		 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+3  				</div>
+  			</div>
+  			<div class="panel panel-default">
+	    		<div class="panel-heading">Write Review</div>
+		  			<div class="panel-body">
+						<form novalidate="novalidate" class="simple_form /create_rating.12" action="http://localhost:3000/users/7/movies/12" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓">
+							<div class="form-group text required create_rating_text"><label class="form-control-label text required" for="_create_rating.12_text">Text <abbr title="required">*</abbr></label><textarea class="form-control text required simple_form_review" rows="5" name="/create_rating.12[text]" id="_create_rating.12_text" spellcheck="false"></textarea></div>
+	   						<input type="submit" name="commit" value="Submit Review" class="btn btn btn-primary" data-disable-with="Submit Review">
+</form>					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+<br>
+<div class="row">
+	<div class="container-fluid">
+		<div class="row-fluid"> 
+	        	<div class="col-sm-6">
+	            	<div class="panel panel-default">
+	                	<div class="panel-heading">
+	           		    	<h3 class="panel-title" itemprop="name">Review Title</h3>
+	         			</div>
+	         			<div class="panel-body" itemprop="reviewBody">
+				        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quaerat aperiam unde nemo suscipit id repellendus ad doloribus quae, fugiat quia rem molestias sequi, amet nisi qui cumque iusto earum!</p>
+	           				<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+	             			<small>
+	             				<span>
+		              			 	<span itemprop="name">test@example.com</span>
+		              				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+		              				<meta itemprop="datePublished">20 Sep 14:19
+		              				<span class="pull-right">
+		             				<span class="reviewRating">
+		                		    <meta itemprop="worstRating" content="1">
+		                  			<span itemprop="ratingValue">5</span> / 
+		                			<span itemprop="bestRating"> stars </span>
+	             			 	</span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	            			</span></span></small>
+	          			</span></div>
+			            <div class="panel-footer clearfix">
+			            	<div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
+			            	<div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
+			            	<div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
+			            </div>
+	        		</div>
+	     		 </div>
+	        	<div class="col-sm-6">
+	            	<div class="panel panel-default">
+	                	<div class="panel-heading">
+	           		    	<h3 class="panel-title" itemprop="name">Review Title</h3>
+	         			</div>
+	         			<div class="panel-body" itemprop="reviewBody">
+				        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quaerat aperiam unde nemo suscipit id repellendus ad doloribus quae, fugiat quia rem molestias sequi, amet nisi qui cumque iusto earum!</p>
+	           				<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+	             			<small>
+	             				<span>
+		              			 	<span itemprop="name">test@example.com</span>
+		              				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+		              				<meta itemprop="datePublished">20 Sep 14:19
+		              				<span class="pull-right">
+		             				<span class="reviewRating">
+		                		    <meta itemprop="worstRating" content="1">
+		                  			<span itemprop="ratingValue">5</span> / 
+		                			<span itemprop="bestRating"> stars </span>
+	             			 	</span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	            			</span></span></small>
+	          			</span></div>
+			            <div class="panel-footer clearfix">
+			            	<div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
+			            	<div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
+			            	<div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
+			            </div>
+	        		</div>
+	     		 </div>
+	        	<div class="col-sm-6">
+	            	<div class="panel panel-default">
+	                	<div class="panel-heading">
+	           		    	<h3 class="panel-title" itemprop="name">Review Title</h3>
+	         			</div>
+	         			<div class="panel-body" itemprop="reviewBody">
+				        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quaerat aperiam unde nemo suscipit id repellendus ad doloribus quae, fugiat quia rem molestias sequi, amet nisi qui cumque iusto earum!</p>
+	           				<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+	             			<small>
+	             				<span>
+		              			 	<span itemprop="name">test@example.com</span>
+		              				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+		              				<meta itemprop="datePublished">20 Sep 14:19
+		              				<span class="pull-right">
+		             				<span class="reviewRating">
+		                		    <meta itemprop="worstRating" content="1">
+		                  			<span itemprop="ratingValue">5</span> / 
+		                			<span itemprop="bestRating"> stars </span>
+	             			 	</span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	            			</span></span></small>
+	          			</span></div>
+			            <div class="panel-footer clearfix">
+			            	<div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
+			            	<div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
+			            	<div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
+			            </div>
+	        		</div>
+	     		 </div>
+	        	<div class="col-sm-6">
+	            	<div class="panel panel-default">
+	                	<div class="panel-heading">
+	           		    	<h3 class="panel-title" itemprop="name">Review Title</h3>
+	         			</div>
+	         			<div class="panel-body" itemprop="reviewBody">
+				        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quaerat aperiam unde nemo suscipit id repellendus ad doloribus quae, fugiat quia rem molestias sequi, amet nisi qui cumque iusto earum!</p>
+	           				<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+	             			<small>
+	             				<span>
+		              			 	<span itemprop="name">test@example.com</span>
+		              				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+		              				<meta itemprop="datePublished">20 Sep 14:19
+		              				<span class="pull-right">
+		             				<span class="reviewRating">
+		                		    <meta itemprop="worstRating" content="1">
+		                  			<span itemprop="ratingValue">5</span> / 
+		                			<span itemprop="bestRating"> stars </span>
+	             			 	</span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	            			</span></span></small>
+	          			</span></div>
+			            <div class="panel-footer clearfix">
+			            	<div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
+			            	<div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
+			            	<div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
+			            </div>
+	        		</div>
+	     		 </div>
+        </div>
+    </div>
+</div>
+    
+        
+
+        <div id="footer">
+            <div class="container">
+                <p>&nbsp;</p>
+                    <p class="user-email pull-left">Logged in as ben@sunderland.eu.com</p>
+            </div>
+        </div>
+    
+
+</body><grammarly-popups class="_1KJtL"><div></div></grammarly-popups><div><div class="gr_-editor gr-iframe-first-load" style="display: none;"><div class="gr_-editor_back"></div><iframe class="gr_-ifr gr-_dialog-content" src="./MovieReview_files/saved_resource.html"></iframe></div></div><grammarly-card style=""><div></div></grammarly-card><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span><grammarly-mirror><div style="border: 0px transparent; margin: 0px; padding: 6px 12px; font: 400 14px/20px &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; direction: ltr; text-align: left; text-shadow: none; text-indent: 0px; letter-spacing: normal; word-break: normal; overflow-wrap: break-word; word-spacing: 0px; writing-mode: horizontal-tb; white-space: pre-wrap; vertical-align: baseline; clear: none; box-sizing: content-box; width: 589px; height: 100px; position: fixed; top: 0px; left: 0px; background: transparent; pointer-events: none; overflow: hidden; color: transparent; z-index: -2147483648; visibility: hidden;">sdassda
+</div></grammarly-mirror></html>

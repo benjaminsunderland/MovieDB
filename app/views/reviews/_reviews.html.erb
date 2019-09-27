@@ -1,0 +1,47 @@
+<% reviews.each do |review| %>
+    <div class="review-<%= review.id %>">
+    	<div class="col-sm-6">
+        	<div class="panel panel-default">
+            	<div class="panel-heading">
+       		    	<h3 class="panel-title review-title-<%= review.id %>" itemprop="name"><%= review.title %></h3>
+     			</div>
+     			<div class="panel-body review-content-<%= review.id %>" itemprop="reviewBody">
+    	        	<p><%= review.content %></p>
+       				<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+         			<small>
+         				<span>
+              			 	<span itemprop="name"><%= review.user.email %></span>
+              				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+              				<meta itemprop="datePublished"><%= review.created_at.to_formatted_s(:short)  %>
+              				<span class="pull-right">
+             				<span class="reviewRating">
+                		    <m`eta itemprop="worstRating" content="1">
+                  			<span itemprop="ratingValue"><%= review.movie_score || 'no ratings yet'%></span> / 
+                			<span itemprop="bestRating"> stars </span>
+         			 	</span>
+                <% if review.movie_score %>                  
+                    <%= review.movie_score.times do %>
+		                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <% end %>
+                <% end %>
+        			</small>
+      			</div>
+                <div class="panel-footer clearfix">
+                  <%= link_to 'Edit', edit_user_movie_review_path(review.user, review.movie, review), remote: true, class: 'review-edit btn btn-primary btn-sm pull-left' %>
+                  <%= link_to 'Destroy', user_movie_review_path(review.user, review.movie, review), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: 'btn btn-primary btn-sm pull-left btn-destroy' %>
+                	<div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
+                	<div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
+                	<div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
+                </div>
+    		</div>
+    	</div>
+    </div>
+<% end %>
+
+<script>
+    $(document).ready(function(){ 
+        $(".review-edit").click(function(e){
+            $('html, body').animate({scrollTop : 0},500);
+        });
+    });
+</script>
